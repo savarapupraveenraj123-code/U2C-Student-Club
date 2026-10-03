@@ -40,7 +40,7 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-gold-400/10 rounded-full blur-[100px] animate-glow-pulse pointer-events-none" />
 
       <div className="relative z-10 container-max section-padding text-center pt-20 pb-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold text-gold-300 text-xs font-medium tracking-wider uppercase mb-8 animate-fade-down">
+       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold text-gold-300 text-xs font-medium tracking-wider uppercase mb-8 animate-fade-in translate-y-6">
           <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
           Established 2016 &bull; A Decade of Legacy
         </div>
