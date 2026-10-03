@@ -18,7 +18,7 @@ export default function Hero() {
   <div className="absolute inset-0 z-0 overflow-hidden">
     <video
       className="w-full h-full object-cover"
-      src="/u2c opening video"
+      src="/u2c opening video.mp4"
       autoPlay
       muted
       loop
