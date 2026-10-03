@@ -7,7 +7,7 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { id: 's1', value: 10, suffix: '+', label: 'Years of Legacy' },
+  { id: 's1', value: 10, suffix: '', label: 'Years of Legacy' },
   { id: 's2', value: 6, suffix: '', label: 'Active Wings' },
   { id: 's3', value: 100, suffix: '+', label: 'Student Activities', isPlaceholder: true },
   { id: 's4', value: '\u221E', suffix: '', label: 'Ideas & Opportunities' },
