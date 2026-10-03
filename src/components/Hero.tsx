@@ -10,9 +10,32 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-950">
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,160,23,0.08),_transparent_70%)]" />
-      <ParticleBackground density={70} />
+
+  {/* Background Gradient */}
+  <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950" />
+
+  {/* Opening Anniversary Video */}
+  <div className="absolute inset-0 z-0 overflow-hidden">
+    <video
+      className="w-full h-full object-cover"
+      src="/u2c-opening-landscape.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+    />
+
+    {/* Low Opacity / Dark Overlay */}
+    <div className="absolute inset-0 bg-navy-950/75" />
+  </div>
+
+  {/* Gold radial glow */}
+  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,173,23,0.08),_transparent_70%)]" />
+
+  <ParticleBackground density={70} />
+
+  {/* Existing Hero Content */}
 
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-gold-400/10 rounded-full blur-[100px] animate-glow-pulse pointer-events-none" />
 
