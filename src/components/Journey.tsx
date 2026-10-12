@@ -71,20 +71,22 @@ export default function Journey() {
 
                   {/* History Card */}
                   <div
-                    className={`
-                      group relative
-                      glass-gold rounded-[28px]
-                      p-7 sm:p-8
-                      border border-gold-400/10
-                      hover:border-gold-400/40
-                      hover:bg-gold-400/[0.06]
-                      transition-all duration-500
-                      shadow-[0_15px_50px_rgba(0,0,0,0.18)]
-                      ${isLeft
-                        ? 'lg:rotate-[-1deg] hover:rotate-0'
-                        : 'lg:rotate-[1deg] hover:rotate-0'
-                      }
-                    `}
+                    
+<div
+  className={`
+    group relative
+    rounded-md bg-[#fff8e8] text-[#242424]
+    p-6 sm:p-8
+    border border-[#e5d6b5]
+    shadow-[3px_5px_0px_rgba(0,0,0,0.10)]
+    transition-transform duration-300
+    ${isLeft
+      ? 'lg:-rotate-1 hover:rotate-0'
+      : 'lg:rotate-1 hover:rotate-0'
+    }
+  `}
+>
+
                   >
 
                     {/* Decorative corner */}
@@ -97,18 +99,23 @@ export default function Journey() {
 
                       <div className="w-10 h-10 rounded-full bg-gold-400/10 border border-gold-400/20 flex items-center justify-center">
                         <Rocket className="w-5 h-5 text-gold-400" />
-                      </div>
+                     
+<span className="font-['Caveat'] text-[#a33a2b] text-4xl sm:text-5xl font-bold tracking-wide">
+  {m.year}
+</span>
 
-                      <span className="text-gold-400 font-display text-3xl sm:text-4xl font-bold tracking-tight">
                         {m.year}
                       </span>
 
-                    </div>
+<h3 className="font-['Caveat'] text-[#202020] text-2xl sm:text-3xl font-bold mb-3">
+  {m.title}
+</h3>
+                  {/* Title */}
+                 
+<p className="text-[#45413a] text-sm sm:text-base leading-7 max-w-xl">
+  {m.description}
+</p>
 
-                    {/* Title */}
-                    <h3 className="text-white text-xl sm:text-2xl font-semibold mb-3">
-                      {m.title}
-                    </h3>
 
                     {/* Description */}
                     <p className="text-white/55 text-sm sm:text-base leading-7 max-w-xl">
