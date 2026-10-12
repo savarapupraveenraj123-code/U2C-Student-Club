@@ -16,7 +16,9 @@ export default function Strength() {
                 <br />
                 Guided by <span className="gold-text">Faculty</span>
               </h2>
-              <p className="text-white/60 text-lg leading-relaxed mb-8">{clubInfo.strengthText}</p>
+              <p className="text-white/80 text-lg leading-relaxed mb-8">
+  {clubInfo.strengthText}
+</p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-3 glass-gold rounded-xl px-5 py-3">
                   <Users className="w-5 h-5 text-gold-400" />
