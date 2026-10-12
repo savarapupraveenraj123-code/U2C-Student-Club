@@ -67,13 +67,5 @@ export const teamMembers: TeamMember[] = [
     contact: '8520939127',
     category: 'Student Coordinators',
   },
-  {
-    id: 'tm-004',
-    name: 'P. BHANDHAVI LATHA',
-    role: 'Secretary',
-    department: 'Department of Mechanical Engineering, ANITS',
-    photo: '/team/p-bhandhavi-latha.jpg',
-    contact: '9704121403',
-    category: 'Student Coordinators',
-  },
+
 ];
