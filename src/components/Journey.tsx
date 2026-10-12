@@ -71,7 +71,6 @@ export default function Journey() {
 
                   {/* History Card */}
                   <div
-                    
 <div
   className={`
     group relative
