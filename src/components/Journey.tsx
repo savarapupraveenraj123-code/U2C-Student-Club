@@ -12,9 +12,9 @@ export default function Journey() {
       <div className="container-max section-padding relative z-10">
         {/* Header */}
         <ScrollReveal className="text-center mb-20">
-          <p className="font-['Caveat'] text-gold-400 text-2xl sm:text-3xl font-semibold mb-2">
-            Our Journey
-          </p>
+         <p className="text-white/80 mt-6 max-w-2xl mx-auto leading-relaxed">
+  {clubInfo.journeyText}
+</p>
 
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
             From Students <span className="gold-text">to Alumni</span>
