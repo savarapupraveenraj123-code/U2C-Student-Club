@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Caveat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-navy-700;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-navy-950 text-white font-sans antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    @apply bg-gold-400/30 text-white;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold-600/50 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-500/70;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-gold {
+    @apply bg-gold-400/5 backdrop-blur-xl border border-gold-400/20;
+  }
+  .gold-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-gold-400 to-gold-600;
+  }
+  .gold-border-gradient {
+    border-image: linear-gradient(135deg, #ffd24d, #b8860b, #ffd24d) 1;
+  }
+  .magnetic-btn {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  .magnetic-btn::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(255, 210, 77, 0.2), rgba(184, 134, 11, 0.2));
+  }
+  .magnetic-btn:hover::before {
+    @apply opacity-100;
+  }
+  .shimmer-text {
+    background: linear-gradient(90deg, #b8860b 0%, #ffd24d 25%, #fff3bf 50%, #ffd24d 75%, #b8860b 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-16;
+  }
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 30px rgba(255, 210, 77, 0.3);
+  }
+  .text-shadow-lg-gold {
+    text-shadow: 0 0 40px rgba(255, 210, 77, 0.4), 0 0 80px rgba(255, 210, 77, 0.2);
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ==========================================================================
+   U2C Scrapbook Visual System (Black & Gold Canvas + Handcrafted Details)
+   ========================================================================== */
+@layer components {
+  /* Cream torn-paper card on dark background */
+  .scrapbook-card {
+    background-color: #fdfaf2;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 27px,
+      rgba(150, 115, 65, 0.04) 28px
+    );
+    color: #1f1d1a;
+    border: 1px solid #dfd4bc;
+    border-radius: 6px;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.15),
+      3px 5px 0px rgba(18, 16, 12, 0.35),
+      0 12px 24px -6px rgba(0, 0, 0, 0.5);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+
+  .scrapbook-card:hover {
+    transform: translateY(-3px) scale(1.008);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      5px 8px 0px rgba(18, 16, 12, 0.4),
+      0 18px 30px -6px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Dark chalkboard / album sheet card with gold stitched borders */
+  .scrapbook-card-dark {
+    background-color: rgba(14, 13, 11, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px dashed rgba(212, 173, 23, 0.35);
+    border-radius: 8px;
+    box-shadow:
+      0 4px 20px -2px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 255, 255, 0.03);
+    transition: transform 220ms ease, border-color 220ms ease;
+  }
+
+  .scrapbook-card-dark:hover {
+    border-color: rgba(242, 173, 22, 0.65);
+    transform: translateY(-2px);
+  }
+
+  /* Polaroid photo card with tape & handwritten caption area */
+  .scrapbook-polaroid {
+    background-color: #fdfbf7;
+    border: 1px solid #e2d7c0;
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      3px 6px 0px rgba(10, 10, 8, 0.4),
+      0 12px 28px -4px rgba(0, 0, 0, 0.55);
+    transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scrapbook-polaroid:hover {
+    transform: translateY(-4px) rotate(0deg) !important;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.25),
+      5px 10px 0px rgba(10, 10, 8, 0.5),
+      0 20px 35px -6px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Washi tape strip */
+  .tape-strip {
+    background: linear-gradient(135deg, rgba(238, 226, 196, 0.88) 0%, rgba(226, 210, 175, 0.82) 100%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+    border-left: 2px dashed rgba(160, 135, 95, 0.4);
+    border-right: 2px dashed rgba(160, 135, 95, 0.4);
+    backdrop-filter: blur(2px);
+  }
+
+  .tape-strip-gold {
+    background: linear-gradient(135deg, rgba(242, 173, 22, 0.75) 0%, rgba(212, 144, 8, 0.68) 100%);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    border-left: 2px dashed rgba(120, 85, 20, 0.4);
+    border-right: 2px dashed rgba(120, 85, 20, 0.4);
+    backdrop-filter: blur(2px);
+  }
+
+  /* Ink Stamp badge */
+  .stamp-badge {
+    border: 2px dashed #b45309;
+    border-radius: 9999px;
+    color: #b45309;
+    font-family: 'Caveat', cursive;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* Rough paper tag */
+  .paper-tag {
+    background-color: #f5eedb;
+    border: 1px solid #d9c79f;
+    color: #4a3f2c;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+  }
+}
+
+/* Subtle organic paper rotation utility */
+.rot-neg-1 { transform: rotate(-1deg); }
+.rot-pos-1 { transform: rotate(1deg); }
+.rot-neg-2 { transform: rotate(-2deg); }
+.rot-pos-2 { transform: rotate(1.8deg); }
