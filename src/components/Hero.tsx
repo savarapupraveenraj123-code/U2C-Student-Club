@@ -18,7 +18,7 @@ export default function Hero() {
   <div className="absolute inset-0 z-0 overflow-hidden">
   <video
   className="w-full h-full object-cover"
-  src="/u2c%20logo%20video.mp4"
+  src="u2c logo video.mp4"
   autoPlay
   loop
   playsInline
