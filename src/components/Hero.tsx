@@ -16,15 +16,15 @@ export default function Hero() {
 
   {/* Opening Anniversary Video */}
   <div className="absolute inset-0 z-0 overflow-hidden">
-    <video
-      className="w-full h-full object-cover"
-      src="/u2c-logo-video.mp4"
-      autoPlay
-      mute
-      loop
-      playsInline
-      preload="auto"
-    />
+  <video
+  className="w-full h-full object-cover"
+  src="/u2c%20logo%20video.mp4"
+  autoPlay
+  loop
+  playsInline
+  controls
+  preload="auto"
+/>
 
     {/* Low Opacity / Dark Overlay */}
     <div className="absolute inset-0 bg-navy-950/75" />
