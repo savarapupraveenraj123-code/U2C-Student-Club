@@ -20,9 +20,9 @@ export default function Hero() {
       className="w-full h-full object-cover"
       src="/u2c-logo-video.mp4"
       autoPlay
+      mute
       loop
       playsInline
-      controls
       preload="auto"
     />
 
