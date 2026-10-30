@@ -22,6 +22,12 @@ function App() {
           muted
           playsInline
           preload="metadata"
+          onTimeUpdate={(event) => {
+            const video = event.currentTarget;
+            if (video.duration && video.currentTime >= video.duration - 2) {
+              video.pause();
+            }
+          }}
         />
         <div className="absolute inset-0 bg-navy-950/70" />
       </div>
