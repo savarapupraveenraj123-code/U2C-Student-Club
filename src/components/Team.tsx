@@ -13,7 +13,7 @@ export default function Team() {
   const rots = ['-rotate-1', 'rotate-1', '-rotate-1.5', 'rotate-1.5'];
 
   return (
-    <section id="team" className="relative py-24 bg-navy-950 overflow-hidden">
+    <section id="team" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(212,160,23,0.06),_transparent_65%)] pointer-events-none" />
 
       <div className="container-max section-padding relative z-10">
