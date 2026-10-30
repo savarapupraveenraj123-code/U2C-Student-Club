@@ -6,7 +6,7 @@ import { TapeStrip, DoodleUnderline, StampMark } from './ScrapbookDoodles';
 
 export default function Journey() {
   return (
-    <section id="journey" className="relative py-24 bg-navy-900 overflow-hidden">
+    <section id="journey" className="relative py-24 overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,160,23,0.06),_transparent_65%)] pointer-events-none" />
 
