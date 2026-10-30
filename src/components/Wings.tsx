@@ -16,7 +16,7 @@ export default function Wings() {
   const rotations = ['-rotate-1', 'rotate-1', '-rotate-0.5', 'rotate-1.5', '-rotate-1', 'rotate-0.5'];
 
   return (
-    <section id="wings" className="relative py-24 bg-navy-950 overflow-hidden">
+    <section id="wings" className="relative py-24 overflow-hidden">
       {/* Background ambient gold glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,160,23,0.06),_transparent_65%)] pointer-events-none" />
 
