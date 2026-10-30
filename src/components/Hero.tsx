@@ -16,8 +16,7 @@ export default function Hero() {
 
   {/* Opening Anniversary Video */}
   <div className="absolute inset-0 z-0 overflow-hidden">
-  <video
-  <video
+   <video
   className="w-full h-full object-cover"
   src="/u2c%20logo%20video.mp4"
   autoPlay
