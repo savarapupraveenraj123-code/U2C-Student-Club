@@ -11,7 +11,7 @@ export default function Strength() {
   ];
 
   return (
-    <section id="strength" className="relative py-24 bg-navy-900 overflow-hidden">
+    <section id="strength" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(212,160,23,0.06),_transparent_65%)] pointer-events-none" />
 
       <div className="container-max section-padding relative z-10">
