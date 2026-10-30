@@ -38,7 +38,7 @@ export default function Impact() {
   const { ref, revealed } = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section id="impact" className="relative py-24 bg-navy-950 overflow-hidden">
+    <section id="impact" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,160,23,0.06),_transparent_65%)] pointer-events-none" />
 
       <div className="container-max section-padding relative z-10">
