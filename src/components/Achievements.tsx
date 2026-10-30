@@ -12,7 +12,7 @@ export default function Achievements() {
   const cardRots = ['-rotate-1', 'rotate-1', 'rotate-0.5', '-rotate-1'];
 
   return (
-    <section id="achievements" className="relative py-24 bg-navy-950 overflow-hidden">
+    <section id="achievements" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(212,160,23,0.06),_transparent_65%)] pointer-events-none" />
 
       <div className="container-max section-padding relative z-10">
