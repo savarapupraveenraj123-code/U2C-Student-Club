@@ -46,6 +46,22 @@ export default function ProfessionalSite() {
 
   return (
     <div className="u2c-site min-h-screen overflow-hidden bg-[#08090b] text-white">
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <video
+          className="h-full w-full object-cover"
+          src="/u2c%20logo%20video.mp4"
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          onTimeUpdate={(event) => {
+            const video = event.currentTarget;
+            if (video.duration && video.currentTime >= video.duration - 2) video.pause();
+          }}
+        />
+        <div className="absolute inset-0 bg-[#08090b]/75" />
+      </div>
+      <div className="relative z-10">
       <header className={`u2c-nav fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'u2c-nav-scrolled' : ''}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
           <button onClick={() => goTo('#home')} className="flex items-center gap-3 text-left" aria-label="U Too Can home">
@@ -82,15 +98,6 @@ export default function ProfessionalSite() {
       <main>
         <section id="home" className="u2c-hero relative flex min-h-[780px] items-center overflow-hidden pt-24 sm:min-h-[860px]">
           <div className="absolute inset-0">
-            <video
-              className="h-full w-full object-cover"
-              src="/u2c%20logo%20video.mp4"
-              autoPlay muted playsInline preload="auto"
-              onTimeUpdate={(event) => {
-                const video = event.currentTarget;
-                if (video.duration && video.currentTime >= video.duration - 2) video.pause();
-              }}
-            />
             <div className="absolute inset-0 bg-gradient-to-r from-[#07080b]/95 via-[#07080b]/65 to-[#07080b]/20" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-[#08090b]/35" />
           </div>
@@ -171,7 +178,7 @@ export default function ProfessionalSite() {
           </div>
         </section>
 
-        <section id="wings" className="u2c-section scroll-mt-24 border-y border-white/[.07] bg-[#0c0e12] py-24 sm:py-32">
+        <section id="wings" className="u2c-section scroll-mt-24 border-y border-white/[.07] bg-transparent py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div><p className="u2c-kicker">02 / Find your space</p><h2 className="u2c-heading mt-5">Six wings.<br /><span className="u2c-gold-text">One shared spirit.</span></h2></div>
@@ -265,6 +272,7 @@ export default function ProfessionalSite() {
           <p className="text-[10px] text-white/35">© {new Date().getFullYear()} U TOO CAN Students Club · ANITS</p>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
