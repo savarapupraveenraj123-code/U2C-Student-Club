@@ -20,7 +20,6 @@ function App() {
           src="/u2c%20logo%20video.mp4"
           autoPlay
           muted
-          loop
           playsInline
           preload="metadata"
         />
