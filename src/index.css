@@ -232,3 +232,65 @@
 .rot-pos-1 { transform: rotate(1deg); }
 .rot-neg-2 { transform: rotate(-2deg); }
 .rot-pos-2 { transform: rotate(1.8deg); }
+
+
+/* ==========================================================================
+   U2C Professional Redesign — editorial black, warm gold, cinematic detail
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+.u2c-site {
+  font-family: 'DM Sans', sans-serif;
+  background:
+    radial-gradient(ellipse at 50% -15%, rgba(177, 137, 64, .10), transparent 42%),
+    #08090b;
+}
+.u2c-site * { box-sizing: border-box; }
+.u2c-site button, .u2c-site a { -webkit-tap-highlight-color: transparent; }
+.u2c-site section { scroll-margin-top: 88px; }
+.u2c-nav { background: linear-gradient(180deg, rgba(7,8,10,.72), transparent); }
+.u2c-nav-scrolled { background: rgba(8,9,11,.88); border-bottom: 1px solid rgba(216,182,106,.16); backdrop-filter: blur(22px); }
+.u2c-nav-link { position: relative; }
+.u2c-nav-link::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 1px; background: #d8b66a; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+.u2c-nav-link:hover::after { transform: scaleX(1); }
+.u2c-display { font-family: 'Playfair Display', Georgia, serif; }
+.u2c-heading { font-family: 'Manrope', sans-serif; font-size: clamp(2.45rem, 5vw, 4.5rem); font-weight: 600; letter-spacing: -.065em; line-height: 1.05; }
+.u2c-gold-text { color: #e6c477; background: linear-gradient(110deg, #f3dfa6 0%, #d8b66a 42%, #a77c36 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.u2c-kicker { color: #d8b66a; font-size: 9px; font-weight: 800; letter-spacing: .32em; text-transform: uppercase; }
+.u2c-eyebrow { border: 1px solid rgba(216,182,106,.28); background: rgba(216,182,106,.07); backdrop-filter: blur(16px); }
+.u2c-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; padding: 14px 22px; font-size: 12px; font-weight: 700; letter-spacing: .015em; transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.u2c-button:hover { transform: translateY(-2px); }
+.u2c-button-gold { background: linear-gradient(115deg, #f0d89c, #c69a4e); color: #17130c; box-shadow: 0 10px 30px rgba(198,154,78,.18); }
+.u2c-button-gold:hover { box-shadow: 0 14px 36px rgba(198,154,78,.28); }
+.u2c-button-outline { border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.035); color: rgba(255,255,255,.9); }
+.u2c-button-outline:hover { border-color: rgba(216,182,106,.65); background: rgba(216,182,106,.08); }
+.u2c-hero { background: #08090b; }
+.u2c-hero video { filter: saturate(.78) contrast(1.04); }
+.u2c-orb { background: radial-gradient(circle, rgba(199,158,82,.16), transparent 68%); filter: blur(10px); pointer-events: none; }
+.u2c-hero-note { border: 1px solid rgba(232,199,125,.22); background: linear-gradient(145deg, rgba(20,21,23,.78), rgba(12,13,15,.54)); box-shadow: 0 35px 90px rgba(0,0,0,.32); backdrop-filter: blur(24px); }
+.u2c-ribbon { background: rgba(255,255,255,.018); }
+.u2c-section { position: relative; background: #08090b; }
+.u2c-stat-card { min-height: 155px; border: 1px solid rgba(255,255,255,.09); background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); transition: border-color .25s ease, transform .25s ease; }
+.u2c-stat-card:hover { transform: translateY(-4px); border-color: rgba(216,182,106,.35); }
+.u2c-stat-featured { background: linear-gradient(145deg, rgba(216,182,106,.17), rgba(216,182,106,.035)); border-color: rgba(216,182,106,.3); }
+.u2c-wing-card, .u2c-award-card, .u2c-timeline-card, .u2c-person-card { border: 1px solid rgba(255,255,255,.09); background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); transition: transform .3s ease, border-color .3s ease, background .3s ease; }
+.u2c-wing-card:hover, .u2c-award-card:hover, .u2c-timeline-card:hover, .u2c-person-card:hover { transform: translateY(-5px); border-color: rgba(216,182,106,.35); background: linear-gradient(145deg, rgba(216,182,106,.08), rgba(255,255,255,.015)); }
+.u2c-icon-box { color: #e5c477; border: 1px solid rgba(216,182,106,.22); background: rgba(216,182,106,.08); }
+.u2c-card-line { background: linear-gradient(90deg, transparent, rgba(216,182,106,.65), transparent); opacity: 0; transition: opacity .3s ease; }
+.u2c-wing-card:hover .u2c-card-line { opacity: 1; }
+.u2c-activity { border: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.025); transition: background .25s ease, border-color .25s ease, transform .25s ease; }
+.u2c-activity:hover { transform: translateY(-3px); border-color: rgba(216,182,106,.35); background: rgba(216,182,106,.07); }
+.u2c-contact-panel { border: 1px solid rgba(216,182,106,.25); background: radial-gradient(ellipse at 90% 5%, rgba(216,182,106,.14), transparent 42%), linear-gradient(135deg, #171717, #0d0e10 65%); box-shadow: 0 30px 90px rgba(0,0,0,.25); }
+.u2c-contact-glow { background: radial-gradient(circle, rgba(216,182,106,.16), transparent 68%); filter: blur(8px); }
+.u2c-contact-link { border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.035); transition: border-color .25s ease, background .25s ease; }
+.u2c-contact-link:hover { border-color: rgba(216,182,106,.4); background: rgba(216,182,106,.06); }
+.u2c-text-link { display: inline-flex; align-items: center; gap: 8px; color: #e2c477; font-size: 12px; font-weight: 700; }
+.u2c-text-link:hover { color: #f5dfa2; }
+@media (max-width: 640px) {
+  .u2c-hero { min-height: 760px; }
+  .u2c-heading { letter-spacing: -.055em; }
+  .u2c-stat-card { min-height: 130px; padding: 1.15rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .u2c-site *, .u2c-site *::before, .u2c-site *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
