@@ -9,7 +9,7 @@ const cardRotations = ['-rotate-1', 'rotate-1', '-rotate-1.5', 'rotate-1'];
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 bg-navy-950 overflow-hidden">
+    <section id="about" className="relative py-24 overflow-hidden">
       {/* Background radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(212,160,23,0.06),_transparent_65%)] pointer-events-none" />
 
