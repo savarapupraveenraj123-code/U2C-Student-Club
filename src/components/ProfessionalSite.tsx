@@ -40,7 +40,7 @@ export default function ProfessionalSite() {
     const timer = window.setTimeout(() => {
       setIntroVisible(false);
       sessionStorage.setItem('u2c-intro-seen', '1');
-    }, 4400);
+    }, 6500);
     return () => window.clearTimeout(timer);
   }, [introVisible]);
 
@@ -90,15 +90,26 @@ export default function ProfessionalSite() {
       {introVisible && (
         <div className="u2c-intro fixed inset-0 z-[100] flex items-center justify-center" role="status" aria-label="U Too Can cinematic introduction">
           <div className="u2c-intro-vignette absolute inset-0" />
+          <div className="u2c-intro-grid" aria-hidden="true" />
+          <div className="u2c-intro-ring u2c-intro-ring-one" aria-hidden="true" />
+          <div className="u2c-intro-ring u2c-intro-ring-two" aria-hidden="true" />
+          <div className="u2c-intro-ring u2c-intro-ring-three" aria-hidden="true" />
+          <div className="u2c-intro-particles" aria-hidden="true">{Array.from({ length: 18 }, (_, i) => <i key={i} />)}</div>
           <div className="u2c-intro-beam" aria-hidden="true" />
           <div className="u2c-intro-core" aria-hidden="true" />
           <div className="u2c-intro-brand relative z-10 flex flex-col items-center">
-            <img src="/u2c-logo-transparent.png" alt="U Too Can" className="h-28 w-28 object-contain sm:h-36 sm:w-36" />
-            <p className="mt-5 text-[10px] font-bold uppercase tracking-[.48em] text-[#e8c77d] sm:text-xs">U TOO CAN</p>
-            <p className="mt-3 text-[8px] uppercase tracking-[.34em] text-white/55 sm:text-[9px]">Enhance · Explore · Execute</p>
-            <span className="u2c-intro-line mt-6 h-px w-24" />
-            <p className="mt-3 text-[8px] uppercase tracking-[.3em] text-white/35">ANITS · Est. 2016</p>
+            <span className="u2c-intro-overline mb-5 text-[8px] font-semibold uppercase tracking-[.55em] text-[#d8b66a] sm:text-[9px]">A decade of creativity · Since 2016</span>
+            <div className="u2c-intro-logo-frame">
+              <span className="u2c-intro-logo-aura" />
+              <img src="/u2c-logo-transparent.png" alt="U Too Can" className="relative z-10 h-32 w-32 object-contain sm:h-40 sm:w-40" />
+            </div>
+            <p className="u2c-intro-title mt-4 text-[11px] font-black uppercase tracking-[.55em] text-[#f0d99f] sm:text-sm">U TOO CAN</p>
+            <p className="u2c-intro-tagline mt-3 text-[8px] uppercase tracking-[.34em] text-white/65 sm:text-[9px]">Enhance <span className="text-[#d8b66a]">·</span> Explore <span className="text-[#d8b66a]">·</span> Execute</p>
+            <span className="u2c-intro-line mt-6 h-px w-32" />
+            <p className="u2c-intro-footer mt-4 text-[8px] uppercase tracking-[.38em] text-white/40">ANITS · Est. 07 October 2016</p>
           </div>
+          <div className="u2c-intro-corner u2c-intro-corner-left" aria-hidden="true">U2C / 010</div>
+          <div className="u2c-intro-corner u2c-intro-corner-right" aria-hidden="true">EST. MMXVI</div>
           <button onClick={skipIntro} className="absolute bottom-8 right-7 z-20 rounded-full border border-white/20 px-4 py-2 text-[9px] font-semibold uppercase tracking-[.2em] text-white/65 transition hover:border-[#e8c77d]/60 hover:text-[#e8c77d]">Skip intro <span aria-hidden="true">↗</span></button>
         </div>
       )}
