@@ -30,6 +30,24 @@ export default function ProfessionalSite() {
   const [activeTeam, setActiveTeam] = useState<TeamCategory>('Faculty Coordinators');
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [introVisible, setIntroVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('u2c-intro-seen');
+  });
+
+  useEffect(() => {
+    if (!introVisible) return;
+    const timer = window.setTimeout(() => {
+      setIntroVisible(false);
+      sessionStorage.setItem('u2c-intro-seen', '1');
+    }, 4400);
+    return () => window.clearTimeout(timer);
+  }, [introVisible]);
+
+  const skipIntro = () => {
+    setIntroVisible(false);
+    sessionStorage.setItem('u2c-intro-seen', '1');
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -69,6 +87,21 @@ export default function ProfessionalSite() {
 
   return (
     <div className="u2c-site min-h-screen overflow-hidden bg-[#08090b] text-white">
+      {introVisible && (
+        <div className="u2c-intro fixed inset-0 z-[100] flex items-center justify-center" role="status" aria-label="U Too Can cinematic introduction">
+          <div className="u2c-intro-vignette absolute inset-0" />
+          <div className="u2c-intro-beam" aria-hidden="true" />
+          <div className="u2c-intro-core" aria-hidden="true" />
+          <div className="u2c-intro-brand relative z-10 flex flex-col items-center">
+            <img src="/u2c-logo-transparent.png" alt="U Too Can" className="h-28 w-28 object-contain sm:h-36 sm:w-36" />
+            <p className="mt-5 text-[10px] font-bold uppercase tracking-[.48em] text-[#e8c77d] sm:text-xs">U TOO CAN</p>
+            <p className="mt-3 text-[8px] uppercase tracking-[.34em] text-white/55 sm:text-[9px]">Enhance · Explore · Execute</p>
+            <span className="u2c-intro-line mt-6 h-px w-24" />
+            <p className="mt-3 text-[8px] uppercase tracking-[.3em] text-white/35">ANITS · Est. 2016</p>
+          </div>
+          <button onClick={skipIntro} className="absolute bottom-8 right-7 z-20 rounded-full border border-white/20 px-4 py-2 text-[9px] font-semibold uppercase tracking-[.2em] text-white/65 transition hover:border-[#e8c77d]/60 hover:text-[#e8c77d]">Skip intro <span aria-hidden="true">↗</span></button>
+        </div>
+      )}
       <div className="u2c-scroll-progress" style={{ transform: `scaleX(${scrollProgress / 100})` }} aria-hidden="true" />
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
         <video
