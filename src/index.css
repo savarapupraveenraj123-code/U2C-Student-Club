@@ -525,3 +525,15 @@
  .u2c-intro-corner{bottom:18px;font-size:7px}.u2c-intro-corner-left{left:14px}.u2c-intro-corner-right{right:14px}
 }
 @media (prefers-reduced-motion:reduce) { .u2c-intro{display:none!important} }
+
+/* Subtle magnetic response for headings as the pointer moves nearby */
+.u2c-heading, .u2c-display, .u2c-site h3 {
+  translate: var(--heading-shift, 0px 0px);
+  rotate: var(--heading-tilt, 0deg);
+  transition: translate 180ms ease-out, rotate 180ms ease-out;
+  transform-origin: center;
+  will-change: translate, rotate;
+}
+@media (prefers-reduced-motion: reduce) {
+  .u2c-heading, .u2c-display, .u2c-site h3 { translate: none; rotate: none; transition: none; }
+}
