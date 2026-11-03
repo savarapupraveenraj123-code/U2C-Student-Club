@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, Award, CalendarDays, Camera, ChevronDown,
   Compass, Heart, Instagram, Lightbulb, Mail, MapPin, Menu, Music2,
@@ -25,76 +25,6 @@ const nav = [
   { label: 'Contact', href: '#contact' },
 ];
 
-
-function U2CExperience() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const host = canvas?.parentElement;
-    const ctx = canvas?.getContext('2d');
-    if (!canvas || !host || !ctx) return;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let width = 0, height = 0, frame = 0, last = 0;
-    let pointerX = -1000, pointerY = -1000, scroll = 0;
-    type Bloom = { x:number; y:number; z:number; size:number; phase:number; speed:number };
-    let blooms: Bloom[] = [];
-    const resize = () => {
-      const rect = host.getBoundingClientRect();
-      width = rect.width; height = rect.height;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.6);
-      canvas.width = Math.round(width*dpr); canvas.height = Math.round(height*dpr);
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      const count = Math.min(105, Math.max(48, Math.round(width/11)));
-      blooms = Array.from({length:count},(_,i)=>({
-        x:Math.random()*width, y:Math.random()*height,
-        z:.25+Math.random()*.75, size:1.2+Math.random()*2.8,
-        phase:Math.random()*Math.PI*2, speed:.25+Math.random()*.8
-      }));
-    };
-    const move = (e:PointerEvent) => { const r=canvas.getBoundingClientRect(); pointerX=e.clientX-r.left; pointerY=e.clientY-r.top; };
-    const leave = () => { pointerX=-1000; pointerY=-1000; };
-    const onScroll = () => { scroll=window.scrollY; };
-    const draw = (time:number) => {
-      const dt=Math.min((time-last)/1000||0,.04); last=time;
-      ctx.clearRect(0,0,width,height);
-      const drift=reduceMotion?0:time*.000018;
-      for(const b of blooms){
-        const wave=Math.sin(time*.00045*b.speed+b.phase);
-        const px=b.x + Math.sin(drift*3+b.phase)*18*b.z;
-        const py=((b.y - scroll*.045*b.z + wave*8*b.z)% (height+30)+height+30)%(height+30)-15;
-        const dx=px-pointerX, dy=py-pointerY, dist=Math.hypot(dx,dy);
-        const push=dist<145?(1-dist/145)*22:0;
-        const x=px+(dist?dx/dist*push:0), y=py+(dist?dy/dist*push:0);
-        const glow=.28 + (wave+1)*.18;
-        const radius=b.size*b.z*(1+(dist<110?.45:0));
-        ctx.save();
-        ctx.translate(x,y);
-        ctx.globalAlpha=glow;
-        ctx.shadowBlur=12*b.z+(dist<110?15:0);
-        ctx.shadowColor='#e8c77d';
-        ctx.fillStyle='#e8c77d';
-        ctx.beginPath();
-        for(let petal=0;petal<6;petal++){
-          const a=petal*Math.PI/3;
-          ctx.ellipse(Math.cos(a)*radius*1.45,Math.sin(a)*radius*1.45,radius*.72,radius*1.2,a,0,Math.PI*2);
-        }
-        ctx.fill();
-        ctx.globalAlpha=glow+.12;
-        ctx.beginPath(); ctx.arc(0,0,Math.max(.7,radius*.42),0,Math.PI*2); ctx.fill();
-        ctx.restore();
-      }
-      if(!reduceMotion) frame=requestAnimationFrame(draw);
-    };
-    resize();
-    canvas.addEventListener('pointermove',move);
-    canvas.addEventListener('pointerleave',leave);
-    window.addEventListener('resize',resize);
-    window.addEventListener('scroll',onScroll,{passive:true});
-    if(reduceMotion) draw(0); else frame=requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(frame); canvas.removeEventListener('pointermove',move); canvas.removeEventListener('pointerleave',leave); window.removeEventListener('resize',resize); window.removeEventListener('scroll',onScroll); };
-  },[]);
-  return <canvas ref={canvasRef} className="u2c-experience-canvas" aria-hidden="true" />;
-}
 
 export default function ProfessionalSite() {
   const [menuOpen, setMenuOpen] = useState(false);
