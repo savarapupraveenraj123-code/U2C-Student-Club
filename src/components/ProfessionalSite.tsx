@@ -61,6 +61,41 @@ export default function ProfessionalSite() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Gentle cursor attraction for headings; isolated from React rendering.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const headings = Array.from(document.querySelectorAll<HTMLElement>('.u2c-display, .u2c-heading, .u2c-site h3'));
+    let frame = 0;
+    const reset = () => headings.forEach(el => {
+      el.style.setProperty('--heading-x', '0px');
+      el.style.setProperty('--heading-y', '0px');
+      el.style.setProperty('--heading-rotate', '0deg');
+    });
+    const onMove = (event: PointerEvent) => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        headings.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          const dx = event.clientX - (rect.left + rect.width / 2);
+          const dy = event.clientY - (rect.top + rect.height / 2);
+          const distance = Math.hypot(dx, dy);
+          const influence = Math.max(0, 1 - distance / 220);
+          el.style.setProperty('--heading-x', `${(dx / 220 * 5 * influence).toFixed(2)}px`);
+          el.style.setProperty('--heading-y', `${(dy / 220 * 5 * influence).toFixed(2)}px`);
+          el.style.setProperty('--heading-rotate', `${(dx / 220 * 0.8 * influence).toFixed(2)}deg`);
+        });
+      });
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('blur', reset);
+    return () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('blur', reset);
+      if (frame) cancelAnimationFrame(frame);
+      reset();
+    };
+  }, []);
+
   useEffect(() => {
     const targets = document.querySelectorAll<HTMLElement>('.u2c-reveal, .u2c-stagger');
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
