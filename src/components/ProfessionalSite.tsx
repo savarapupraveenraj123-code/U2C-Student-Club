@@ -166,8 +166,7 @@ export default function ProfessionalSite() {
       </header>
 
       <main>
-        <section id="home" className="u2c-hero u2c-hero-enter relative flex min-h-[780px] items-center overflow-hidden pt-24 sm:min-h-[860px]">\n          <U2CExperience />
-          <div className="absolute inset-0">
+        <section id="home" className="u2c-hero u2c-hero-enter relative flex min-h-[780px] items-center overflow-hidden pt-24 sm:min-h-[860px]">\n          <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-to-r from-[#07080b]/95 via-[#07080b]/65 to-[#07080b]/20" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-[#08090b]/35" />
           </div>
