@@ -79,6 +79,44 @@ export default function ProfessionalSite() {
     return () => observer.disconnect();
   }, []);
 
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const headings = Array.from(document.querySelectorAll<HTMLElement>('.u2c-heading, .u2c-display, .u2c-site h3'));
+    let frame = 0;
+    let pointerX = -1000, pointerY = -1000;
+    const move = (event: PointerEvent) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        headings.forEach(heading => {
+          const rect = heading.getBoundingClientRect();
+          const dx = pointerX - (rect.left + rect.width / 2);
+          const dy = pointerY - (rect.top + rect.height / 2);
+          const reach = Math.max(rect.width, rect.height, 180) * 1.15;
+          const distance = Math.hypot(dx, dy);
+          const influence = Math.max(0, 1 - distance / reach);
+          heading.style.setProperty('--heading-shift', `${(dx / Math.max(rect.width, 1) * 5 * influence).toFixed(2)}px ${(dy / Math.max(rect.height, 1) * 4 * influence).toFixed(2)}px`);
+          heading.style.setProperty('--heading-tilt', `${(dx / Math.max(rect.width, 1) * 1.8 * influence).toFixed(2)}deg`);
+        });
+        frame = 0;
+      });
+    };
+    const reset = () => headings.forEach(heading => {
+      heading.style.setProperty('--heading-shift', '0px 0px');
+      heading.style.setProperty('--heading-tilt', '0deg');
+    });
+    window.addEventListener('pointermove', move, { passive: true });
+    window.addEventListener('blur', reset);
+    return () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('blur', reset);
+      if (frame) cancelAnimationFrame(frame);
+      reset();
+    };
+  }, []);
+
   const goTo = (href: string) => {
     setMenuOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
