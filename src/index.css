@@ -526,3 +526,14 @@
 }
 @media (prefers-reduced-motion:reduce) { .u2c-intro{display:none!important} }
 
+
+/* Subtle magnetic heading response: pointer proximity only, no layout changes. */
+.u2c-display, .u2c-heading, .u2c-site h3 {
+  translate: var(--heading-x, 0px) var(--heading-y, 0px);
+  rotate: var(--heading-rotate, 0deg);
+  transition: translate 220ms cubic-bezier(.2,.7,.2,1), rotate 220ms cubic-bezier(.2,.7,.2,1);
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .u2c-display, .u2c-heading, .u2c-site h3 { translate: none; rotate: none; transition: none; }
+}
